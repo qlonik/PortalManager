@@ -10,7 +10,7 @@ exit = function()
 	running = false
 end
 
-allButtons.exit = buttons.register(10, 10, 10, 3, colors.white, colors.grey, "exit", exit)
+allButtons.exit = buttons.register(10, 10, 10, 3, colors.white, colors.gray, "exit", exit)
 
 
 buttons.draw()
