@@ -5,6 +5,11 @@ local running = true
 local heading = "Portals"
 local allButtons = {}
 
+drawHeading = function()
+	monitor.setCursorPos(math.floor((monitorWidth - #heading) / 2), 1)
+	monitor.write(heading)
+end
+
 local monitor = peripheral.wrap("right")
 buttons.setDefaultOutput(monitor)
 local monitorWidth, monitorHeight = monitor.getSize()
@@ -17,15 +22,13 @@ allButtons.exit = buttons.register(10, 10, 10, 3, colors.white, colors.gray, "ex
 
 
 buttons.draw()
-monitor.setCursorPos(math.floor((monitorWidth - #heading) / 2), 1)
-monitor.write(heading)
+drawHeading()
 
 while running do 
 	local eventArray = {os.pullEvent()}
 	buttons.event(eventArray)
 	buttons.draw()
-	monitor.setCursorPos(math.floor((monitorWidth - #heading) / 2), 1)
-	monitor.write(heading)
+	drawHeading()
 end
 
 monitor.clear()
