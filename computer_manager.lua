@@ -2,10 +2,12 @@ os.unloadAPI("buttons")
 os.loadAPI("buttons")
 
 local running = true
+local heading = "Portals"
 local allButtons = {}
 
-monitor = peripheral.wrap("right")
+local monitor = peripheral.wrap("right")
 buttons.setDefaultOutput(monitor)
+local monitorWidth, monitorHeight = monitor.getSize()
 
 exit = function()
 	running = false
@@ -19,6 +21,8 @@ while running do
 	local eventArray = {os.pullEvent()}
 	buttons.event(eventArray)
 	buttons.draw()
+	monitor.setCursorPos(math.floor((monitorWidth - #heading) / 2), 1)
+	monitor.write(heading)
 end
 
 monitor.clear()
