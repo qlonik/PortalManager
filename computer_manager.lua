@@ -5,6 +5,7 @@ local running = true
 local allButtons = {}
 
 monitor = peripheral.wrap("right")
+buttons.setDefaultOutput(monitor)
 
 exit = function()
 	running = false
