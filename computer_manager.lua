@@ -17,6 +17,9 @@ allButtons.exit = buttons.register(10, 10, 10, 3, colors.white, colors.gray, "ex
 
 
 buttons.draw()
+monitor.setCursorPos(math.floor((monitorWidth - #heading) / 2), 1)
+monitor.write(heading)
+
 while running do 
 	local eventArray = {os.pullEvent()}
 	buttons.event(eventArray)
