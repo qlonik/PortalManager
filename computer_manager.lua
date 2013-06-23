@@ -43,13 +43,15 @@ end
 
 openPortal = function(world)
 	rednet.open(modemSide)
-	rednet.send(bookManager, books[world] - 1)
+	message = textutils.serialize({["command"] = "open", ["slot"] = books[world] - 1})
+	rednet.send(bookManager, message)
 	rednet.close(modemSide)
 end
 
 closePortal = function(world)
 	rednet.open(modemSide)
-	rednet.send(bookManager, books[world] - 1)
+	message = textutils.serialize({["command"] = "close", ["slot"] = books[world] - 1})
+	rednet.send(bookManager, message)
 	rednet.close(modemSide)
 end
 
