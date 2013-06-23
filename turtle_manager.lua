@@ -9,8 +9,9 @@ local screenManager
 local running = true
 
 findScreenManager = function()
+	local senderID, message, distance
 	while message ~= "portal_screen_manager" do
-		local senderID, message, distance = rednet.receive()
+		senderID, message, distance = rednet.receive()
 		screenManager = senderID
 	end
 
