@@ -44,11 +44,13 @@ end
 openPortal = function(world)
 	message = textutils.serialize({["command"] = "open", ["slot"] = books[world] - 1})
 	rednet.send(bookManager, message)
+	sleep(0.1)
 end
 
 closePortal = function(world)
 	message = textutils.serialize({["command"] = "close", ["slot"] = books[world] - 1})
 	rednet.send(bookManager, message)
+	sleep(0.1)
 end
 
 exit = function()
