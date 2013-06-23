@@ -27,8 +27,10 @@ local defaultBgPressedColor = colors.lime
 
 findBookManager = function()
 	rednet.broadcast("portal_screen_manager")
+
+	local senderID, message, distance
 	while message ~= "portal_book_manager" do
-		local senderID, message, distance = rednet.receive()
+		senderID, message, distance = rednet.receive()
 		bookManager = senderID
 	end
 end
