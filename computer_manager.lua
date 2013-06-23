@@ -58,13 +58,13 @@ end
 netherBtn = function()
 	openPortal("nether")
 	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgPressedColor)
-	buttons.draw()
+	draw()
 
 	sleep(7)
 
 	closePortal("nether")
 	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgColor)
-	buttons.draw()
+	draw()
 end
 
 endBtn = function()
