@@ -26,13 +26,11 @@ local defaultBgColor = colors.red
 local defaultBgPressedColor = colors.lime
 
 findBookManager = function()
-	rednet.open(modemSide)
 	rednet.broadcast("portal_screen_manager")
 	while message ~= "portal_book_manager" do
 		local senderID, message, distance = rednet.receive()
 		bookManager = senderID
 	end
-	rednet.close(modemSide)
 end
 
 draw = function()
@@ -42,17 +40,13 @@ draw = function()
 end
 
 openPortal = function(world)
-	rednet.open(modemSide)
 	message = textutils.serialize({["command"] = "open", ["slot"] = books[world] - 1})
 	rednet.send(bookManager, message)
-	rednet.close(modemSide)
 end
 
 closePortal = function(world)
-	rednet.open(modemSide)
 	message = textutils.serialize({["command"] = "close", ["slot"] = books[world] - 1})
 	rednet.send(bookManager, message)
-	rednet.close(modemSide)
 end
 
 exit = function()
@@ -86,6 +80,7 @@ allButtons.btn1 = buttons.register(3, 21, 10, 5, defaultTextColor, defaultBgColo
 
 allButtons.btn2 = buttons.register(16, 3, 10, 5, defaultTextColor, defaultBgColor, "Btn2", exit)
 
+rednet.open(modemSide)
 findBookManager()
 draw()
 while running do 
@@ -94,5 +89,6 @@ while running do
 	draw()
 end
 
+rednet.close(modemSide)
 monitor.clear()
 os.unloadAPI("buttons")
