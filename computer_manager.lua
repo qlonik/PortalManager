@@ -70,19 +70,37 @@ netherBtn = function()
 end
 
 endBtn = function()
+	openPortal("theEnd")
+	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgPressedColor)
+	draw()
+
+	sleep(7)
+
+	closePortal("theEnd")
+	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgColor)
+	draw()
 end
 
 miningBtn = function()
+	openPortal("mining")
+	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgPressedColor)
+	draw()
+
+	sleep(7)
+
+	closePortal("mining")
+	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgColor)
+	draw()
 end
 
-allButtons.exit = buttons.register(74, 23, 8, 3, defaultTextColor, colors.gray, "exit", exit)
+--allButtons.exit = buttons.register(74, 23, 8, 3, defaultTextColor, colors.gray, "exit", exit)
 
 allButtons.nether = buttons.register(3, 3, 10, 5, defaultTextColor, defaultBgColor, "Nether", netherBtn)
-allButtons.theEnd = buttons.register(3, 9, 10, 5, defaultTextColor, defaultBgColor, "End", exit)
-allButtons.mining = buttons.register(3, 15, 10, 5, defaultTextColor, defaultBgColor, "Mining", exit) 
-allButtons.btn1 = buttons.register(3, 21, 10, 5, defaultTextColor, defaultBgColor, "Btn1", exit) 
+allButtons.theEnd = buttons.register(3, 9, 10, 5, defaultTextColor, defaultBgColor, "End", endBtn)
+allButtons.mining = buttons.register(3, 15, 10, 5, defaultTextColor, defaultBgColor, "Mining", miningBtn) 
+--allButtons.btn1 = buttons.register(3, 21, 10, 5, defaultTextColor, defaultBgColor, "Btn1", exit) 
 
-allButtons.btn2 = buttons.register(16, 3, 10, 5, defaultTextColor, defaultBgColor, "Btn2", exit)
+--allButtons.btn2 = buttons.register(16, 3, 10, 5, defaultTextColor, defaultBgColor, "Btn2", exit)
 
 rednet.open(modemSide)
 findBookManager()
