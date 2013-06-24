@@ -71,25 +71,25 @@ end
 
 endBtn = function()
 	openPortal("theEnd")
-	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgPressedColor)
+	buttons.setColor(allButtons.theEnd, defaultTextColor, defaultBgPressedColor)
 	draw()
 
 	sleep(7)
 
 	closePortal("theEnd")
-	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgColor)
+	buttons.setColor(allButtons.theEnd, defaultTextColor, defaultBgColor)
 	draw()
 end
 
 miningBtn = function()
 	openPortal("mining")
-	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgPressedColor)
+	buttons.setColor(allButtons.mining, defaultTextColor, defaultBgPressedColor)
 	draw()
 
 	sleep(7)
 
 	closePortal("mining")
-	buttons.setColor(allButtons.nether, defaultTextColor, defaultBgColor)
+	buttons.setColor(allButtons.mining, defaultTextColor, defaultBgColor)
 	draw()
 end
 
